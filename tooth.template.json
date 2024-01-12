@@ -1,6 +1,6 @@
 {
     "format_version": 2,
-    "tooth": "github.com/tooth-hub/bds",
+    "tooth": "github.com/LiteLDev/bds",
     "version": "<TOOTH_VERSION>",
     "info": {
         "name": "Minecraft Bedrock Dedicated Server",
@@ -11,6 +11,26 @@
             "minecraft"
         ]
     },
+    "dependencies": {
+        "github.com/LiteLDev/bdsdown": ">=0.4.0"
+    },
+    "files": {
+        "remove": [
+            "behavior_packs",
+            "config",
+            "definitions",
+            "development_behavior_packs",
+            "development_resource_packs",
+            "development_skin_packs",
+            "resource_packs",
+            "world_templates",
+            "bedrock_server.exe",
+            "bedrock_server.pdb",
+            "bedrock_server_how_to.html",
+            "release-notes.txt",
+            "valid_known_packs.json"
+        ]
+    },
     "platforms": [
         {
             "commands": {
@@ -19,52 +39,12 @@
                     "./.lip/tools/bdsdown/bdsdown -y -v <BDS_VERSION>"
                 ]
             },
-            "dependencies": {
-                "github.com/tooth-hub/bdsdown": ">=0.4.0"
-            },
-            "files": {
-                "remove": [
-                    "behavior_packs",
-                    "config",
-                    "definitions",
-                    "development_behavior_packs",
-                    "development_resource_packs",
-                    "development_skin_packs",
-                    "resource_packs",
-                    "world_templates",
-                    "bedrock_server.exe",
-                    "bedrock_server.pdb",
-                    "bedrock_server_how_to.html",
-                    "release-notes.txt",
-                    "valid_known_packs.json"
-                ]
-            },
             "goos": "linux"
         },
         {
             "commands": {
                 "post_install": [
                     ".\\.lip\\tools\\bdsdown\\bdsdown.exe -y -v <BDS_VERSION>"
-                ]
-            },
-            "dependencies": {
-                "github.com/tooth-hub/bdsdown": ">=0.4.0"
-            },
-            "files": {
-                "remove": [
-                    "behavior_packs",
-                    "config",
-                    "definitions",
-                    "development_behavior_packs",
-                    "development_resource_packs",
-                    "development_skin_packs",
-                    "resource_packs",
-                    "world_templates",
-                    "bedrock_server.exe",
-                    "bedrock_server.pdb",
-                    "bedrock_server_how_to.html",
-                    "release-notes.txt",
-                    "valid_known_packs.json"
                 ]
             },
             "goos": "windows"

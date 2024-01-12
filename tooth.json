@@ -1,6 +1,6 @@
 {
     "format_version": 2,
-    "tooth": "github.com/tooth-hub/bds",
+    "tooth": "github.com/LiteLDev/bds",
     "version": "0.0.0",
     "info": {
         "name": "Minecraft Bedrock Dedicated Server",
