@@ -1,0 +1,25 @@
+on:
+  push:
+  schedule:
+    - cron: 0 * * * *
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: fregante/setup-git-user@v2
+
+      - name: Fetch latest version
+        run: |
+          chmod +x fetch_latest.sh
+          ./fetch_latest.sh
+          
+      - name: Release new versions
+        run: |
+          chmod +x release.sh
+          ./release.sh
