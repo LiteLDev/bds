@@ -6,13 +6,10 @@
         "name": "Minecraft Bedrock Dedicated Server",
         "description": "Bedrock Dedicated Servers allow Minecraft players on Windows and Linux computers to set up their own server at home, or host their server using a cloud-based service.",
         "author": "Mojang",
-        "tags": [
-            "bds",
-            "minecraft"
-        ]
+        "tags": []
     },
     "dependencies": {
-        "github.com/LiteLDev/bdsdown": ">=0.4.0"
+        "github.com/LiteLDev/bdsdown": "0.5.x"
     },
     "files": {
         "remove": [
@@ -25,6 +22,7 @@
             "resource_packs",
             "world_templates",
             "bedrock_server.exe",
+            "bedrock_server.exe.bak",
             "bedrock_server.pdb",
             "bedrock_server_how_to.html",
             "release-notes.txt",
@@ -35,8 +33,8 @@
         {
             "commands": {
                 "post_install": [
-                    "chmod +x ./.lip/tools/bdsdown/bdsdown",
-                    "./.lip/tools/bdsdown/bdsdown -y -v <BDS_VERSION>"
+                    "chmod +x ./bdsdown",
+                    "./bdsdown --yes --source version://linux/<BDS_VERSION>"
                 ]
             },
             "goos": "linux"
@@ -44,7 +42,7 @@
         {
             "commands": {
                 "post_install": [
-                    ".\\.lip\\tools\\bdsdown\\bdsdown.exe -y -v <BDS_VERSION>"
+                    ".\\bdsdown.exe -y --source version://windows/<BDS_VERSION>"
                 ]
             },
             "goos": "windows"
