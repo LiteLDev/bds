@@ -9,7 +9,7 @@
         "tags": []
     },
     "dependencies": {
-        "github.com/LiteLDev/bdsdown": "0.5.x"
+        "github.com/LiteLDev/bdsdown": "1.x"
     },
     "files": {
         "remove": [
