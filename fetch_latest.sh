@@ -1,15 +1,22 @@
 #! /usr/bin/env bash
 
-# Fetch the download link for the latest version of BDS
-response=$(curl -s https://mc-bds-helper.vercel.app/api/latest)
-echo "Got response from the API: $response"
+# Fetch JSON and extract the downloadUrl for serverBedrockWindows
+download_url=$(curl -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0' -s "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links" | \
+grep -oP '"downloadType":\s*"serverBedrockWindows".*?"downloadUrl":\s*"\K[^"]+')
+
+if [[ -z "$download_url" ]]; then
+    echo "Failed to fetch downloadUrl for serverBedrockWindows."
+    exit 1
+fi
+
+echo "Download URL: $download_url"
 
 # Extract the version number using regex
-if [[ $response =~ [0-9]+\.[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+if [[ $download_url =~ [0-9]+\.[0-9]+\.[0-9]+\.[0-9]+ ]]; then
     version="${BASH_REMATCH[0]}"
     echo "Parsed version: $version"
 else
-    echo "Failed to extract version number from the response."
+    echo "Failed to extract version number from the download_url."
     exit 1
 fi
 
