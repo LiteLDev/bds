@@ -35,11 +35,11 @@
             ],
             "scripts": {
                 "pre_install": [],
-                "install": [],
-                "post_install": [
+                "install": [
                     "chmod +x ./bdsdown",
                     "./bdsdown --yes --source version://linux/<BDS_VERSION>"
                 ],
+                "post_install": [],
                 "pre_pack": [],
                 "post_pack": [],
                 "pre_uninstall": [],
@@ -74,10 +74,10 @@
             ],
             "scripts": {
                 "pre_install": [],
-                "install": [],
-                "post_install": [
+                "install": [
                     ".\\bdsdown.exe -y --source version://windows/<BDS_VERSION>"
                 ],
+                "post_install": [],
                 "pre_pack": [],
                 "post_pack": [],
                 "pre_uninstall": [],
