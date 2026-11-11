@@ -1,0 +1,12 @@
+format = 4
+id = "github.com/LiteLDev/bds"
+version = "0.0.0"
+
+[info]
+name = "Minecraft Bedrock Dedicated Server"
+description = "Bedrock Dedicated Servers allow Minecraft players on Windows and Linux computers to set up their own server at home, or host their server using a cloud-based service."
+tags = []
+
+# This file only describes the package. The released lip.toml of each version is generated
+# from lip.template.toml by release.sh and committed at the tag v<version>.
+[variants]
