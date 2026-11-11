@@ -1,0 +1,96 @@
+format = 4
+id = "github.com/LiteLDev/bds"
+version = "<PACKAGE_VERSION>"
+
+[info]
+name = "Minecraft Bedrock Dedicated Server"
+description = "Bedrock Dedicated Servers allow Minecraft players on Windows and Linux computers to set up their own server at home, or host their server using a cloud-based service."
+tags = []
+
+# BDS is server-only: every entry has side = "server". The server files are downloaded by
+# bdsdown in the post_install hook, for the full BDS version (x.y.z.w) that release.sh fills in.
+
+[[variants.""]]
+side = "server"
+platform = "linux-x64"
+purge = [
+    "bedrock_server",
+    "bedrock_server/",
+    "bedrock_server_how_to.html",
+    "bedrock_server_how_to.html/",
+    "behavior_packs",
+    "behavior_packs/",
+    "config",
+    "config/",
+    "definitions",
+    "definitions/",
+    "development_behavior_packs",
+    "development_behavior_packs/",
+    "development_resource_packs",
+    "development_resource_packs/",
+    "development_skin_packs",
+    "development_skin_packs/",
+    "packet-statistics.txt",
+    "packet-statistics.txt/",
+    "release-notes.txt",
+    "release-notes.txt/",
+    "resource_packs",
+    "resource_packs/",
+    "world_templates",
+    "world_templates/",
+    "valid_known_packs.json",
+    "valid_known_packs.json/",
+]
+
+[variants."".deps]
+"github.com/LiteLDev/bdsdown" = "1.*"
+
+[variants."".hooks]
+post_install = [
+    "chmod +x ./bdsdown",
+    "./bdsdown --yes --source version://linux/<BDS_VERSION>",
+]
+
+[[variants.""]]
+side = "server"
+platform = "win-x64"
+purge = [
+    "bedrock_server.exe",
+    "bedrock_server.exe/",
+    "bedrock_server.exe.bak",
+    "bedrock_server.exe.bak/",
+    "bedrock_server.pdb",
+    "bedrock_server.pdb/",
+    "bedrock_server_how_to.html",
+    "bedrock_server_how_to.html/",
+    "behavior_packs",
+    "behavior_packs/",
+    "config",
+    "config/",
+    "definitions",
+    "definitions/",
+    "development_behavior_packs",
+    "development_behavior_packs/",
+    "development_resource_packs",
+    "development_resource_packs/",
+    "development_skin_packs",
+    "development_skin_packs/",
+    "packet-statistics.txt",
+    "packet-statistics.txt/",
+    "release-notes.txt",
+    "release-notes.txt/",
+    "resource_packs",
+    "resource_packs/",
+    "world_templates",
+    "world_templates/",
+    "valid_known_packs.json",
+    "valid_known_packs.json/",
+]
+
+[variants."".deps]
+"github.com/LiteLDev/bdsdown" = "1.*"
+
+[variants."".hooks]
+post_install = [
+    '.\bdsdown.exe -y --source version://windows/<BDS_VERSION>',
+]
